@@ -20,6 +20,7 @@
           :id="page.path"
           :key="page.path"
           :class="getClassesForAnchor(page)"
+          @mousedown="$emit('navigate')"
         >
           <g-link
             :to="`${page.path}`"

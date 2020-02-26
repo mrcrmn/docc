@@ -19,7 +19,7 @@
           :style="sidebarStyle"
         >
           <div class="bg-background w-full pb-16">
-            <Sidebar />
+            <Sidebar @navigate="sidebarOpen = false" />
           </div>
         </aside>
 
@@ -64,6 +64,11 @@ export default {
     return {
       headerHeight: 0,
       sidebarOpen: false,
+    }
+  },
+  watch: {
+    sidebarOpen: function(isOpen) {
+      document.body.classList.toggle('overflow-hidden', isOpen);
     }
   },
   methods: {
@@ -188,7 +193,7 @@ blockquote {
     @apply pl-5 py-1;
 
     li {
-      @apply mb-1;
+      @apply mb-2;
 
       &:last-child {
         @apply mb-0;
