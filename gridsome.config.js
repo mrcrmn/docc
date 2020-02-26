@@ -6,6 +6,7 @@
 
 module.exports = {
   siteName: 'doCC',
+  siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://example.com'),
   settings: {
     web: 'https://mrcrmn.dev',
     github: 'https://github.com/mrcrmn',
