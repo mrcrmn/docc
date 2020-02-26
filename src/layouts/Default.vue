@@ -1,6 +1,6 @@
 <template>
   <div class="font-sans antialiased text-typo bg-background">
-    <div class="flex flex-wrap min-h-screen justify-start">
+    <div class="flex flex-col min-h-screen justify-start">
 
       <header
         ref="header"
@@ -10,20 +10,32 @@
         <LayoutHeader />
       </header>
 
-      <main class="relative w-full container bg-background flex justify-start">
+      <main class="relative w-full flex-1 container bg-background flex flex-wrap justify-start">
 
-        <aside v-if="$page && headerHeight" class="w-full relative md:w-1/4 border-r border-borderColor top-0 sticky overflow-y-auto" :style="sidebarStyle">
+        <aside
+          v-if="hasSidebar"
+          class="sidebar"
+          :class="{ 'open': sidebarOpen }"
+          :style="sidebarStyle"
+        >
           <div class="bg-background w-full pb-16">
             <Sidebar />
           </div>
         </aside>
 
-        <div class="pl-12 w-full md:w-3/4 pb-16">
+        <div class="w-full pl-0 lg:pl-12 lg:w-3/4 pb-24">
           <slot />
         </div>
 
       </main>
 
+    </div>
+
+    <div v-if="hasSidebar" class="fixed bottom-0 right-0 p-8 lg:hidden z-50">
+      <button class="rounded-full shadow-lg text-white p-3 bg-primary hover:text-white" @click="sidebarOpen = ! sidebarOpen">
+        <XIcon v-if="sidebarOpen" />
+        <MenuIcon v-else />
+      </button>
     </div>
   </div>
 </template>
@@ -39,15 +51,19 @@ query {
 <script>
 import Sidebar from "@/components/Sidebar";
 import LayoutHeader from "@/components/LayoutHeader";
+import { MenuIcon, XIcon } from 'vue-feather-icons';
 
 export default {
   components: {
     Sidebar,
-    LayoutHeader
+    LayoutHeader,
+    MenuIcon,
+    XIcon
   },
   data() {
     return {
-      headerHeight: 0
+      headerHeight: 0,
+      sidebarOpen: false,
     }
   },
   methods: {
@@ -63,6 +79,9 @@ export default {
         top: this.headerHeight + 'px',
         height: `calc(100vh - ${this.headerHeight}px)`
       }
+    },
+    hasSidebar() {
+      return this.$page && this.headerHeight > 0;
     }
   },
   mounted() {
@@ -77,7 +96,7 @@ export default {
   --color-typo: theme('colors.gray.700');
   --color-sidebar: theme('colors.gray.200');
   --color-borderColor: theme('colors.gray.300');
-  --color-primary: theme('colors.green.700');
+  --color-primary: theme('colors.indigo.600');
 }
 
 html[lights-out] {
@@ -85,7 +104,7 @@ html[lights-out] {
   --color-typo: theme('colors.gray.100');
   --color-sidebar: theme('colors.gray.800');
   --color-borderColor: theme('colors.gray.800');
-  --color-primary: theme('colors.green.500');
+  --color-primary: theme('colors.indigo.400');
 }
 
 * {
@@ -166,7 +185,15 @@ blockquote {
 
   ol,
   ul {
-    @apply pl-3 py-1;
+    @apply pl-5 py-1;
+
+    li {
+      @apply mb-1;
+
+      &:last-child {
+        @apply mb-0;
+      }
+    }
   }
 }
 
@@ -217,6 +244,20 @@ table {
     &:last-child {
       @apply border-b-0;
     }
+  }
+}
+
+.sidebar {
+  @apply fixed bg-background px-4 inset-x-0 bottom-0 w-full border-r border-borderColor overflow-y-auto transition-transform duration-300 ease-in-out z-40;
+  transform: translateX(-100%);
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  @screen lg {
+    @apply w-1/4 px-0 bg-transparent top-0 bottom-auto inset-x-auto sticky z-0;
+    transform: translateX(0);
   }
 }
 </style>

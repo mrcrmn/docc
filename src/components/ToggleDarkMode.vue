@@ -1,10 +1,12 @@
 <template>
-  <button @click="toggleDarkMode">
+  <button @click="handleClick">
     <slot :dark="isDarkMode" />
   </button>
 </template>
 
 <script>
+export const LIGHTS_OUT = 'lights-out';
+
 export default {
   data() {
     return {
@@ -13,15 +15,51 @@ export default {
   },
 
   methods: {
-    toggleDarkMode() {
-      const htmlEl = document.documentElement;
-      const hasDarkMode = htmlEl.hasAttribute('lights-out');
+    handleClick() {
+      const hasDarkMode = document.documentElement.hasAttribute(LIGHTS_OUT);
 
-      htmlEl.toggleAttribute('lights-out', ! hasDarkMode);
+      // Toggle dark mode on click.
+      return this.toggleDarkMode(! hasDarkMode);
+    },
 
-      this.isDarkMode = ! hasDarkMode;
+    toggleDarkMode(shouldBeDark) {
+      document.documentElement.toggleAttribute(LIGHTS_OUT, shouldBeDark);
 
-      return ! hasDarkMode;
+      this.isDarkMode = shouldBeDark;
+
+      this.writeToStorage(shouldBeDark);
+
+      return shouldBeDark;
+    },
+
+    detectPrefered() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    },
+
+    hasInStorage() {
+      const check = localStorage.getItem(LIGHTS_OUT);
+
+      return check !== null;
+    },
+
+    writeToStorage(prefersDark) {
+      localStorage.setItem(LIGHTS_OUT, prefersDark ? 'true' : 'false');
+    },
+
+    getFromStorage() {
+      return localStorage.getItem(LIGHTS_OUT) === 'true' ? true : false;
+    }
+  },
+
+  mounted() {
+    if (this.hasInStorage()) {
+      this.toggleDarkMode(
+        this.getFromStorage()
+      );
+    } else if (window.matchMedia) {
+      this.toggleDarkMode(
+        this.detectPrefered()
+      );
     }
   }
 };

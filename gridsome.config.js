@@ -5,9 +5,31 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'doCC',
   settings: {
+    web: 'https://mrcrmn.dev',
     github: 'https://github.com/mrcrmn',
+    twitter: 'https://twitter.com/mrc_rmn',
+    nav: {
+      links: [
+        { path: '/docs/', title: 'Docs' }
+      ]
+    },
+    sidebar: [
+      {
+        name: 'docs',
+        sections: [
+          {
+            title: 'Getting Started',
+            items: [
+              '/docs/',
+              '/docs/core-concepts/',
+              '/docs/fast-by-default/',
+            ]
+          }
+        ]
+      }
+    ]
   },
   plugins: [
     {

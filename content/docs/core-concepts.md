@@ -1,3 +1,9 @@
+---
+sidebar: docs
+next: '/docs/fast-by-default/'
+prev: '/docs/'
+---
+
 # Core concepts
 
 ## Pages

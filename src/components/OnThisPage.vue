@@ -1,6 +1,6 @@
 <template>
-  <div class="pl-8 pb-16 border-l border-borderColor">
-    <h3 class="border-none uppercase text-sm tracking-wide">On this page</h3>
+  <div class="sm:pl-4 md:pl-6 md:pt-12 lg:pl-8 sm:pb-16 sm:border-l border-borderColor mt-8 md:mt-0">
+    <h3 class="border-none uppercase text-sm tracking-wide mt-0 pt-0">On this page</h3>
     <div>
       <ul>
         <li
@@ -14,7 +14,7 @@
         >
           <g-link
             :to="`${page.path}${heading.anchor}`"
-            class="flex items-center py-1 text-sm relative transition-transform duration-200 ease-out transform hover:translate-x-1"
+            class="flex items-center py-1 text-sm relative transition duration-300 ease-out transform hover:translate-x-1"
             :class="{
               'pl-2': heading.depth === 3,
               'pl-3': heading.depth === 4,
@@ -22,7 +22,12 @@
               'font-bold text-primary': activeAnchor === heading.anchor
             }"
           >
-            <span v-if="activeAnchor === heading.anchor" class="w-2 h-2 bg-primary rounded-full absolute -ml-3"></span>
+            <span
+              class="w-2 h-2 bg-primary rounded-full absolute -ml-3 transition duration-300 ease-out opacity-0 transform scale-0 origin-center"
+              :class="{
+                'opacity-100 scale-100': activeAnchor === heading.anchor
+              }"
+            ></span>
             {{ heading.value }}
           </g-link>
         </li>

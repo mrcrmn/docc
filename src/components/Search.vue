@@ -5,19 +5,22 @@
     @keydown.enter="go"
     class="relative"
   >
-    <input
-      ref="input"
-      type="search"
-      v-model="query"
-      class="block px-4 py-2 bg-sidebar border-2 border-sidebar rounded-lg focus:bg-background w-full"
-      :class="{'rounded-b-none': showResult,}"
-      placeholder="Search..."
-      @focus="focused = true"
-      @blur="focused = false"
-      @input="focusIndex = -1"
-    />
+    <label>
+      <span class="sr-only">Search Documentation</span>
+      <input
+        ref="input"
+        type="search"
+        v-model="query"
+        class="block px-4 py-2 bg-sidebar border-2 border-sidebar rounded-lg focus:bg-background w-full"
+        :class="{'rounded-b-none': showResult,}"
+        placeholder="Search Documentation..."
+        @focus="focused = true"
+        @blur="focused = false"
+        @input="focusIndex = -1"
+      />
+    </label>
     <div v-if="showResult" class="results bg-background absolute rounded-lg rounded-t-none shadow-lg border-2 border-t-0 border-sidebar z-50 inset-x-0">
-      <ul class="p-2 m-0">
+      <ul class="py-2 px-4 m-0">
         <li v-if="results.length === 0" class="px-2">
           No results for <span class="font-bold">{{ query }}</span>.
         </li>
@@ -28,19 +31,29 @@
           :key="result.path + result.anchor"
           @mouseenter="focusIndex = index"
           @mousedown="go"
-          class="rounded-lg p-2 border-sidebar"
+          class="border-sidebar"
           :class="{
-            'bg-sidebar text-primary': focusIndex === index,
             'border-b': index + 1 !== results.length
           }"
         >
-          <g-link :to="result.path + result.anchor" class="block font-bold">
+          <g-link
+            :to="result.path + result.anchor"
+            class="block rounded-lg -mx-2 p-2 font-bold text-base"
+            :class="{
+              'bg-sidebar text-primary': focusIndex === index,
+            }"
+          >
+
             <span v-if="result.value === result.title">
               {{ result.value }}
             </span>
-            <span v-else>
-              {{ result.title }} <span class="font-normal opacity-75">> {{ result.value }}</span>
+
+            <span v-else class="flex items-center">
+              {{ result.title }}
+              <ChevronRightIcon size="1x" class="mx-1" />
+              <span class="font-normal opacity-75">{{ result.value }}</span>
             </span>
+
           </g-link>
         </li>
       </ul>
@@ -69,9 +82,13 @@ query Search {
 
 <script>
 import Fuse from 'fuse.js';
-import sortBy from 'lodash/sortBy';
+import { ChevronRightIcon } from 'vue-feather-icons';
 
 export default {
+  components: {
+    ChevronRightIcon
+  },
+
   data() {
     return {
       query: '',

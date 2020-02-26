@@ -1,3 +1,8 @@
+---
+sidebar: docs
+next: '/docs/core-concepts/'
+---
+
 # Introduction
 
 > Gridsome is a free and open source [Vue.js-powered](https://vuejs.org/) framework for building websites & apps that are [fast by default](/docs/fast-by-default/) 🚀.
