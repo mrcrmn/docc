@@ -1,6 +1,13 @@
 <template>
   <Layout>
-      <div class="content" v-html="$page.markdownPage.content" />
+      <div class="flex flex-wrap items-start justify-start">
+        <div class="order-2 w-full md:w-1/3 pl-8 sticky" style="top: 4rem">
+          <OnThisPage />
+        </div>
+        <div class="order-1 w-full md:w-2/3">
+          <div class="content" v-html="$page.markdownPage.content" />
+        </div>
+      </div>
   </Layout>
 </template>
 
@@ -12,18 +19,28 @@ query ($id: ID!) {
     path
     timeToRead
     content
+    headings {
+      depth
+      value
+      anchor
+    }
   }
 }
 </page-query>
 
 <script>
+import OnThisPage from '@/components/OnThisPage.vue';
 
 export default {
-    metaInfo() {
-      return {
-        title: this.$page.markdownPage.title
-      }
+  components: {
+    OnThisPage
+  },
+  
+  metaInfo() {
+    return {
+      title: this.$page.markdownPage.title
     }
+  }
 }
 </script>
 

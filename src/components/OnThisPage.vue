@@ -1,0 +1,88 @@
+<template>
+  <div class="pl-8 pb-16 border-l border-borderColor">
+    <h3 class="border-none uppercase text-sm tracking-wide">On this page</h3>
+    <div>
+      <ul>
+        <li
+          v-for="(heading, index) in headings"
+          :key="`${page.path}${heading.anchor}`"
+          :class="{
+            'border-t border-dashed border-borderColor pt-2 mt-2': index > 0 && heading.depth === 2,
+            'font-semibold': heading.depth === 2,
+            [`depth-${heading.depth}`]: true,
+          }"
+        >
+          <g-link
+            :to="`${page.path}${heading.anchor}`"
+            class="flex items-center py-1 text-sm relative transition-transform duration-200 ease-out transform hover:translate-x-1"
+            :class="{
+              'pl-2': heading.depth === 3,
+              'pl-3': heading.depth === 4,
+              'pl-4': heading.depth === 5,
+              'font-bold text-primary': activeAnchor === heading.anchor
+            }"
+          >
+            <span v-if="activeAnchor === heading.anchor" class="w-2 h-2 bg-primary rounded-full absolute -ml-3"></span>
+            {{ heading.value }}
+          </g-link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      activeAnchor: '',
+      observer: null
+    }
+  },
+
+  computed: {
+    page() {
+      return this.$page.markdownPage;
+    },
+    headings() {
+      return this.page.headings.filter(h => h.depth > 1);
+    }
+  },
+
+  methods: {
+    observerCallback(entries, observer) {
+      console.log(entries);
+      const id = entries[0].target.id;
+
+      if (id) {
+        this.activeAnchor = '#' + id;
+        if (history.replaceState) {
+          history.replaceState(null, null, '#' + id);
+        }
+      }
+    },
+
+    initObserver() {
+      this.observer = new IntersectionObserver(this.observerCallback, {
+        rootMargin: '0px 0px 99999px',
+        threshold: 1
+      });
+
+      const elements = document.querySelectorAll('.content h2, .content h3, .content h4, .content h5, .content h6');
+      for (let i = 0; i < elements.length; i++) {
+        this.observer.observe(elements[i]);
+      }
+    },
+  },
+
+  mounted() {
+    if (process.isClient) {
+      this.activeAnchor = window.location.hash;
+      this.$nextTick(this.initObserver);
+    }
+  }
+};
+</script>
+
+<style>
+</style>

@@ -9,7 +9,7 @@
       ref="input"
       type="search"
       v-model="query"
-      class="block px-3 py-2 bg-sidebar border-2 border-sidebar rounded-lg focus:bg-background w-full"
+      class="block px-4 py-2 bg-sidebar border-2 border-sidebar rounded-lg focus:bg-background w-full"
       :class="{'rounded-b-none': showResult,}"
       placeholder="Search..."
       @focus="focused = true"
@@ -18,7 +18,12 @@
     />
     <div v-if="showResult" class="results bg-background absolute rounded-lg rounded-t-none shadow-lg border-2 border-t-0 border-sidebar z-50 inset-x-0">
       <ul class="p-2 m-0">
+        <li v-if="results.length === 0" class="px-2">
+          No results for <span class="font-bold">{{ query }}</span>.
+        </li>
+
         <li
+          v-else
           v-for="(result, index) in results"
           :key="result.path + result.anchor"
           @mouseenter="focusIndex = index"
@@ -100,7 +105,7 @@ export default {
       return result;
     },
     showResult() {
-      return this.focused && this.results.length > 0;
+      return this.focused && this.query.length > 0;
     }
   },
   methods: {

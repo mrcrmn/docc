@@ -1,25 +1,29 @@
 <template>
   <div class="font-sans antialiased text-typo bg-background">
-    <div class="flex flex-wrap flex-col min-h-screen justify-start">
+    <div class="flex flex-wrap min-h-screen justify-start">
+
       <header
         ref="header"
-        class="bg-background h-16 w-full sticky top-0 border-b border-borderColor z-10"
+        class="bg-background w-full sticky top-0 border-b border-borderColor z-10"
         @resize="setHeaderHeight"
       >
         <LayoutHeader />
       </header>
-      <aside
-        v-if="$page"
-        class="bg-sidebar mt-16 w-full sm:max-w-sm border-r border-borderColor fixed left-0 top-0"
-      >
-        <Sidebar />
-      </aside>
 
-      <main class="max-w-full bg-background pb-20 flex-1" :class="{'pl-sm': $page}">
-        <div class="container max-w-screen-md mx-auto px-4">
+      <main class="relative w-full container bg-background flex justify-start">
+
+        <aside v-if="$page && headerHeight" class="w-full relative md:w-1/4 border-r border-borderColor top-0 sticky overflow-y-auto" :style="sidebarStyle">
+          <div class="bg-background w-full pb-16">
+            <Sidebar />
+          </div>
+        </aside>
+
+        <div class="pl-12 w-full md:w-3/4 pb-16">
           <slot />
         </div>
+
       </main>
+
     </div>
   </div>
 </template>
@@ -42,11 +46,23 @@ export default {
     LayoutHeader
   },
   data() {
-    return { headerHeight: 0 };
+    return {
+      headerHeight: 0
+    }
   },
   methods: {
     setHeaderHeight() {
-      this.headerHeight = this.$refs.header.clientHeight;
+      this.$nextTick(() => {
+        this.headerHeight = this.$refs.header.offsetHeight;
+      });
+    }
+  },
+  computed: {
+    sidebarStyle() {
+      return {
+        top: this.headerHeight + 'px',
+        height: `calc(100vh - ${this.headerHeight}px)`
+      }
     }
   },
   mounted() {
@@ -114,7 +130,7 @@ h3 {
 
 h2,
 h3 {
-  @apply border-b border-gray-300 pb-1 mb-3;
+  @apply border-b border-borderColor pb-1 mb-3;
 }
 
 h2 + h3,
@@ -130,7 +146,8 @@ h4 {
 p,
 ol,
 ul,
-pre {
+pre,
+blockquote {
   @apply mb-4 text-base;
 }
 
@@ -154,7 +171,11 @@ pre {
 }
 
 blockquote {
-  @apply border-l-4 border-borderColor py-4 pl-4;
+  @apply border-l-4 border-borderColor py-2 pl-4;
+
+  p:last-child {
+    @apply mb-0;
+  }
 }
 
 code {
