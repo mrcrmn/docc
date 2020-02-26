@@ -56,7 +56,7 @@ export default {
       this.toggleDarkMode(
         this.getFromStorage()
       );
-    } else if (window.matchMedia) {
+    } else if (process.isClient && window.matchMedia) {
       this.toggleDarkMode(
         this.detectPrefered()
       );

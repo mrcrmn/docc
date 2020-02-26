@@ -29,7 +29,9 @@
         </div>
 
         <div class="px-2 sm:px-4 w-full max-w-screen-xs">
-          <Search />
+          <ClientOnly>
+            <Search />
+          </ClientOnly>
         </div>
 
         <div class="px-2 sm:px-4 flex justify-end items-center">
@@ -79,9 +81,10 @@ query {
 </static-query>
 
 <script>
-import Search from "@/components/Search";
 import ToggleDarkMode from "@/components/ToggleDarkMode";
 import { SunIcon, MoonIcon, GlobeIcon, GithubIcon, TwitterIcon } from "vue-feather-icons";
+
+const Search = () => import(/* webpackChunkName: "search" */ "@/components/Search");
 
 export default {
   components: {
