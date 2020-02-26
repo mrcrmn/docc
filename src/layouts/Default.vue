@@ -81,9 +81,9 @@ export default {
 }
 
 html[lights-out] {
-  --color-background: theme('colors.black');
+  --color-background: theme('colors.gray.900');
   --color-typo: theme('colors.gray.100');
-  --color-sidebar: theme('colors.gray.900');
+  --color-sidebar: theme('colors.gray.800');
   --color-borderColor: theme('colors.gray.800');
   --color-primary: theme('colors.green.500');
 }

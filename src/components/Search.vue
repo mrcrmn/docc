@@ -92,6 +92,7 @@ export default {
       let result = [];
       const allPages = this.$static.allMarkdownPage.edges.map(edge => edge.node);
 
+      // Create the array of all headings of all pages.
       allPages.forEach(page => {
         page.headings.forEach(heading => {
           result.push({
@@ -105,6 +106,7 @@ export default {
       return result;
     },
     showResult() {
+      // Show results, if the input is focused and the query is not empty.
       return this.focused && this.query.length > 0;
     }
   },
@@ -120,12 +122,14 @@ export default {
       }
     },
     go() {
+      // Do nothing if we don't have results.
       if (this.results.length === 0) {
         return;
       }
 
       let result;
 
+      // If we don't have focus on a result, just navigate to the first one.
       if (this.focusIndex === -1) {
         result = this.results[0];
       } else {
@@ -136,6 +140,7 @@ export default {
         result.path + result.anchor
       );
 
+      // Unfocus the input and reset the query.
       this.$refs.input.blur();
       this.query = '';
     }
