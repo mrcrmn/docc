@@ -23,7 +23,10 @@
           </div>
         </aside>
 
-        <div class="w-full pl-0 lg:pl-12 lg:w-3/4 pb-24">
+        <div
+          class="w-full pb-24"
+          :class="{'pl-0 lg:pl-12 lg:w-3/4': hasSidebar}"
+        >
           <slot />
         </div>
 
@@ -122,7 +125,7 @@ h1,
 h2,
 h3,
 h4 {
-  @apply leading-snug font-black mb-4 -mt-12 pt-20;
+  @apply leading-snug font-black mb-4;
 
   &:hover {
     a::before {
@@ -152,17 +155,6 @@ h3 {
   @apply text-xl;
 }
 
-h2,
-h3 {
-  @apply border-b border-borderColor pb-1 mb-3;
-}
-
-h2 + h3,
-h2 + h2,
-h3 + h3 {
-  @apply border-none -mt-20;
-}
-
 h4 {
   @apply text-lg;
 }
@@ -178,6 +170,21 @@ blockquote {
 .content {
   a {
     @apply text-primary underline;
+  }
+
+  h1, h2, h4, h4 {
+    @apply -mt-12 pt-20;
+  }
+    
+  h2 + h3,
+  h2 + h2,
+  h3 + h3 {
+    @apply border-none -mt-20;
+  }
+
+  h2,
+  h3 {
+    @apply border-b border-borderColor pb-1 mb-3;
   }
 
   ul {

@@ -1,27 +1,89 @@
 <template>
   <Layout>
+    <div class="pt-8 md:pt-16">
+      <div class="flex flex-col items-center">
+        <div class="text-primary flex flex-col items-center mb-2">
+          <Logo width="80" />
+          <h2 class="text-3xl text-6xl tracking-tighter font-black border-none">DOCC</h2>
+        </div>
+        <h1 class="text-4xl lg:text-5xl text-center">
+          Great Documentation starts here.
+        </h1>
+        <p class="font-medium text-xl text-center">
+          Perfect Lighthouse score out of the box. Easy to set-up. Darkmode include.
+          <br>
+          <strong class="text-primary">Got a minute?</strong>
+        </p>
 
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
+        <div class="flex justify-center mt-8">
+          <g-link
+            to="/docs/"
+            class="flex items-center ml-auto text-2xl text-white bg-primary leading-none font-bold px-6 py-4 border border-primary rounded-lg shadow transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
+          >
+            Get started
+            <ArrowRightCircleIcon class="ml-4" size="1x" />
+          </g-link>
+        </div>
 
-    <h1>Hello, world!</h1>
+      </div>
 
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
+      <div class="mt-16 pt-16 border-top border-t border-borderColor mx-auto max-w-screen-sm"></div>
 
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
+      <div class="flex justify-center flex-wrap -mx-4">
+        <div class="flex flex-col items-center w-full md:w-1/3 text-center px-4 mb-8">
+          <ZapIcon size="3x" class="text-primary mb-6" />
+          <h3 class="text-primary uppercase font-bold tracking-wide">
+            Incredibly Fast
+          </h3>
+          <p class="text-lg">
+            Powered by Gridsome. Build on Vue. Outputs static files. It wont't get any faster than this.
+          </p>
+        </div>
 
+        <div class="flex flex-col items-center w-full md:w-1/3 text-center px-4 mb-8">
+          <SearchIcon size="3x" class="text-primary mb-6" />
+          <h3 class="text-primary uppercase font-bold tracking-wide">
+            Instant Search
+          </h3>
+          <p class="text-lg">
+            All pages are indexed. Instant search powered by fuse.js. Find what you are looking for.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center w-full md:w-1/3 text-center px-4 mb-8">
+          <MoonIcon size="3x" class="text-primary mb-6" />
+          <h3 class="text-primary uppercase font-bold tracking-wide">
+            Lights out
+          </h3>
+          <p class="text-lg">
+            Working late at night again? Enable dark mode with the click of a button.
+          </p>
+        </div>
+      </div>
+
+    </div>
   </Layout>
 </template>
 
 <script>
+import Logo from '@/components/Logo';
+import { ArrowRightCircleIcon, ZapIcon, CodeIcon, MoonIcon, SearchIcon } from 'vue-feather-icons';
+
 export default {
+  components: {
+    Logo,
+    ArrowRightCircleIcon,
+    ZapIcon,
+    CodeIcon,
+    MoonIcon,
+    SearchIcon
+  },
+
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Great Documentation starts here',
+    meta: [
+      { name: 'description', content: 'DOCC is a starter theme for writing great technical documentation. Based on Gridsome!' }
+    ]
   }
 }
 </script>
