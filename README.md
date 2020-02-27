@@ -1,14 +1,11 @@
-# Default starter for Gridsome
+# Docc
 
-This is the project you get when you run `gridsome create new-project`.
+[Docc Logo](./src/assets/favicon.png)
 
-### 1. Install Gridsome CLI tool if you don't have
+A starter documentation theme for gridsome.
 
-`npm install --global @gridsome/cli`
+## Installation
 
-### 2. Create a Gridsome project
+If you have the Gridsome CLI installed, simply run:
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+`gridsome create your-project https://github.com/mrcrmn/docc`

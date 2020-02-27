@@ -13,8 +13,8 @@ module.exports = {
   siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://example.com'),
   settings: {
     web: process.env.URL_WEB,
-    github: process.env.URL_TWITTER,
-    twitter: process.env.URL_GITHUB,
+    twitter: process.env.URL_TWITTER,
+    github: process.env.URL_GITHUB,
     nav: {
       links: [
         { path: '/docs/', title: 'Docs' }
