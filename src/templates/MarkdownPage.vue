@@ -23,8 +23,7 @@ query ($id: ID!) {
   markdownPage(id: $id) {
     id
     title
-    
-    excerpt
+    description
     path
     timeToRead
     content

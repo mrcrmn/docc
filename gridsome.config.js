@@ -5,11 +5,11 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'doCC',
+  siteName: 'Docc Theme',
   siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://example.com'),
   settings: {
     web: 'https://mrcrmn.dev',
-    github: 'https://github.com/mrcrmn',
+    github: 'https://github.com/mrcrmn/docc',
     twitter: 'https://twitter.com/mrc_rmn',
     nav: {
       links: [
@@ -24,8 +24,8 @@ module.exports = {
             title: 'Getting Started',
             items: [
               '/docs/',
-              '/docs/core-concepts/',
-              '/docs/fast-by-default/',
+              '/docs/installation/',
+              '/docs/writing-content/',
             ]
           }
         ]
@@ -52,7 +52,13 @@ module.exports = {
     {
       use: 'gridsome-plugin-tailwindcss',
       options: {
-        tailwindConfig: './tailwind.config.js'
+        tailwindConfig: './tailwind.config.js',
+        purgeConfig: {
+          // Prevent purging of prism classes.
+          whitelistPatterns: [
+            /token/
+          ]
+        }
       }
     },
 

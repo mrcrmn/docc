@@ -7,6 +7,7 @@
           <g-link
             to="/"
             class="flex items-center text-primary"
+            title="Home"
           >
             <Logo :width="40" />
             <span class="hidden sm:block font-black uppercase tracking-tighter text-xl ml-2">
@@ -83,7 +84,7 @@ import ToggleDarkMode from "@/components/ToggleDarkMode";
 import Logo from '@/components/Logo';
 import { SunIcon, MoonIcon, GlobeIcon, GithubIcon, TwitterIcon } from "vue-feather-icons";
 
-const Search = () => import(/* webpackChunkName: "search" */ "@/components/Search");
+const Search = () => import(/* webpackChunkName: "search" */ "@/components/Search").catch(error => console.warn(error));
 
 export default {
   components: {

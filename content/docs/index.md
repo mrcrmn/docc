@@ -1,71 +1,39 @@
 ---
-sidebar: docs
-next: '/docs/core-concepts/'
+description: ''
+sidebar: 'docs'
+next: '/docs/installation/'
 ---
 
 # Introduction
 
-> Gridsome is a free and open source [Vue.js-powered](https://vuejs.org/) framework for building websites & apps that are [fast by default](/docs/fast-by-default/) 🚀.
+Docc is a starter theme for [Gridsome](https://gridsome.org/) which is a static site generator powered by Vue. It allows you to quickly start writing your technical documentation for any kind of project.
 
-## Why Gridsome?
+## Fast by default
 
-- **Vue.js for frontend** - The simplest & most approachable frontend framework.
-- **Local development with hot-reloading** - See code changes in real-time.
-- **File-based page routing** - Any `Name.vue` file in `src/pages` is a static route.
-- **Dynamic routing** - Any `[param].vue` file in `src/pages` is a dynamic route.
-- **Static file generation** - Deploy securely to any CDN or static web host.
-- **Data sourcing** - Use any Headless CMSs, APIs or Markdown-files for data.
-- **GraphQL data layer** - Simpler data management with a centralized data layer.
-- **Automatic Code Splitting** - Builds ultra performance into every page.
-- **Plugin ecosystem** - Find a plugin for any job.
+This is the catchphrase of Gridsome and true in any sense of the word. Static site generators output plain html files and have other great features like image processing and lazy-loading. After Serving the initial html, Gridsome site turn into a snappy single page application.
 
+If I may quote Gridsome themselves:
 
-## How it works
-Gridsome **generates static html** that hydrates into a <strong>Vue SPA</strong> once loaded in the browser. This means you can build both **static websites** & **dynamic apps** with Gridsome. It's perfect for your [JAMstack](/docs/jamstack) workflow. 
+> Gridsome builds ultra performance into every page automatically. You get code splitting, asset optimization, progressive images, and link prefetching out of the box. With Gridsome you get almost perfect page speed scores by default.
 
-Gridsome builds one `.html` file and one `.json` file for every page. After first page load it only uses the `.json` files to prefetch and load data for the next pages. It also builds a `.js` bundle for each page that needs it (code splitting).
+In combination with [Netlify](https://www.netlify.com/) this theme gives you a perfect Lighthouse score out of the box.
 
-It uses [vue-router](https://router.vuejs.org/) for SPA routing, and [vue-meta](https://vue-meta.nuxtjs.org/) for managing `<head>`.
+## Simple Navigation
 
-Gridsome adds a `57kB min gzip` JS bundle size by default.(vue.js, vue-router, vue-meta and some for image lazy loading).
+Any good documentation has great navigation. This theme has support for an organized sidebar fore cross-page navigation as well as an autmatic generated table of contents for each page in your documentation.
 
-[Learn more about how it works.](/docs/how-it-works)
+## Search
 
+The search component which is shipped with this theme, automatically indexes all headlines in your markdown pages and provides instant client side search powered by [Fuse.js](https://fusejs.io/).
 
-## Prerequisites
-You should have basic knowledge about HTML, CSS, [Vue.js](https://vuejs.org) and how to use the [Terminal](https://www.linode.com/docs/tools-reference/tools/using-the-terminal/). Knowing how [GraphQL](https://www.graphql.com/) works is a plus, but not required. Gridsome is a great way to learn it.
+## Dark Mode
 
-Gridsome requires [Node.js](https://nodejs.org/) (v8.3+) and recommends [Yarn](https://yarnpkg.com).
+This seems to be a must have for any site in current year. Click the icon at the top of the page and try it out for yourself!
 
-## How to install
+## Make it your own
 
-### 1. Install Gridsome CLI tool
+Of course this is just a starter to quickly get you going. After downloading and installing you can do whatever you want with this theme. Check out the `src` folder and take a look at the components.
 
-- Using **YARN:**  `yarn global add @gridsome/cli`
-- Using **NPM:**  `npm install --global @gridsome/cli`
+Docc uses [TailwindCSS](https://tailwindcss.com/). Colors and spacing can easily configured. To change the accent color, you only need to touch a single line in the code.
 
-### 2. Create a Gridsome project
-
-1. `gridsome create my-gridsome-site` to create a new project </li>
-2. `cd my-gridsome-site` to open folder
-3. `gridsome develop` to start local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
-
-### 3. Next steps
-
-1. Create `.vue` components in the `/pages` directory to create page routes.
-2. Use `gridsome build` to generate static files in a `/dist` folder
-
-
-#### Learn more
-- [Core concepts](/docs/core-concepts/)
-- [How to host & deploy](/docs/deployment/)
-
-## Alternatives
-
--    **[VuePress.](https://vuepress.vuejs.org/)** Another static site generator for Vue.js. It uses local markdown files for content and is perfect for documentation sites. It is possible to build anything in VuePress and Markdown (Like a blog f.ex).
-
--    **[Nuxt.](https://nuxtjs.org/)** A Universal Vue.js Framework for server-side rendered (SSR) apps and websites. It also has a static site generator feature, but the main focus is SSR.
-
--	**[Gatsby.js](https://www.gatsbyjs.org/)**  Gridsome is highly inspired by Gatsby.js (React.js based), which collects data sources and generates a static site from it. Gridsome is an alternative for Gatsby.js.
-
+Don't like how something was designed or implemented? Just change the code and **make it your way**.
