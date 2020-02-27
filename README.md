@@ -1,6 +1,6 @@
 # Docc
 
-[Docc Logo](./src/assets/favicon.png)
+![Docc Logo](/src/assets/favicon.png)
 
 A starter documentation theme for gridsome.
 
