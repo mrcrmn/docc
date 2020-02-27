@@ -111,7 +111,7 @@ export default {
 
 <style lang="scss">
 header {
-  svg {
+  svg:not(.feather-search) {
     @apply transition-colors duration-300 ease-out;
   
     &:hover {

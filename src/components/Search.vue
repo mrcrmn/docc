@@ -5,13 +5,16 @@
     @keydown.enter="go"
     class="relative"
   >
-    <label>
+    <label class="block relative">
       <span class="sr-only">Search Documentation</span>
+      <div class="absolute left-0 inset-y-0 flex items-center justify-center py-2 px-3 opacity-50">
+        <SearchIcon size="1.25x" />
+      </div>
       <input
         ref="input"
         type="search"
         :value="query"
-        class="block px-4 py-2 bg-sidebar border-2 border-sidebar rounded-lg focus:bg-background w-full"
+        class="block py-2 pl-10 pr-4 bg-sidebar border-2 border-sidebar rounded-lg focus:bg-background w-full"
         :class="{'rounded-b-none': showResult,}"
         placeholder="Search Documentation..."
         @focus="focused = true"
@@ -87,11 +90,12 @@ query Search {
 
 <script>
 import Fuse from 'fuse.js';
-import { ChevronRightIcon } from 'vue-feather-icons';
+import { ChevronRightIcon, SearchIcon } from 'vue-feather-icons';
 
 export default {
   components: {
-    ChevronRightIcon
+    ChevronRightIcon,
+    SearchIcon
   },
 
   data() {
