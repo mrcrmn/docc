@@ -1,8 +1,8 @@
 ---
 description: ''
 sidebar: 'docs'
-prev: '/docs/installation/'
+prev: '/docs/writing-content/'
 next: '/docs/external-pages/'
 ---
 
-# Writing Content
+# Settings

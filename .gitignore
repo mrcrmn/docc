@@ -4,5 +4,6 @@
 src/.temp
 node_modules
 dist
+!.env.example
 .env
 .env.*

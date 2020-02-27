@@ -113,6 +113,11 @@ html[lights-out] {
   --color-sidebar: theme('colors.gray.800');
   --color-borderColor: theme('colors.gray.800');
   --color-primary: theme('colors.indigo.500');
+
+  pre[class*="language-"],
+  code[class*="language-"] {
+    @apply bg-borderColor;
+  }
 }
 
 * {

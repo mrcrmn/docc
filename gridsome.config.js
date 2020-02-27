@@ -6,11 +6,15 @@
 
 module.exports = {
   siteName: 'Docc',
+  icon: {
+    favicon: './src/assets/favicon.png',
+    touchicon: './src/assets/favicon.png'
+  },
   siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://example.com'),
   settings: {
-    web: 'https://mrcrmn.dev',
-    github: 'https://github.com/mrcrmn/docc',
-    twitter: 'https://twitter.com/mrc_rmn',
+    web: process.env.URL_WEB,
+    github: process.env.URL_TWITTER,
+    twitter: process.env.URL_GITHUB,
     nav: {
       links: [
         { path: '/docs/', title: 'Docs' }
@@ -26,6 +30,15 @@ module.exports = {
               '/docs/',
               '/docs/installation/',
               '/docs/writing-content/',
+            ]
+          },
+          {
+            title: 'Configuration',
+            items: [
+              '/docs/settings/',
+              '/docs/external-pages/',
+              '/docs/sidebar/',
+              '/docs/google-analytics/',
             ]
           }
         ]
