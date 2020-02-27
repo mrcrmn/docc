@@ -18,7 +18,7 @@
         <div class="flex justify-center mt-8">
           <g-link
             to="/docs/"
-            class="flex items-center ml-auto text-2xl text-white bg-primary leading-none font-bold px-6 py-4 border border-primary rounded-lg shadow transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
+            class="flex items-center ml-auto text-2xl text-white bg-primary leading-none font-bold px-6 py-4 border border-primary rounded-lg shadow-lg transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
           >
             Get started
             <ArrowRightCircleIcon class="ml-4" size="1x" />
@@ -82,7 +82,7 @@ export default {
   metaInfo: {
     title: 'Great Documentation starts here',
     meta: [
-      { name: 'description', content: 'DOCC is a starter theme for writing great technical documentation. Based on Gridsome!' }
+      { name: 'description', content: 'DOCC is a starter theme with instant search and dark mode for writing great technical documentation. Based on Gridsome!' }
     ]
   }
 }
