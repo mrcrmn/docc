@@ -71,7 +71,7 @@ export default {
   methods: {
     observerCallback(entries, observer) {
       // This early return fixes the jumping
-      // of the circles when we click on a link.
+      // of the bubble active state when we click on a link.
       // There should be only one intersecting element anyways.
       if (entries.length > 1) {
         return;
@@ -97,7 +97,9 @@ export default {
         threshold: 1
       });
 
-      const elements = document.querySelectorAll('.content h2, .content h3, .content h4, .content h5, .content h6');
+      const elements = document.querySelectorAll(
+        '.content h2, .content h3, .content h4, .content h5, .content h6'
+      );
 
       for (let i = 0; i < elements.length; i++) {
         this.observer.observe(elements[i]);
@@ -115,6 +117,3 @@ export default {
   }
 };
 </script>
-
-<style>
-</style>
