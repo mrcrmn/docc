@@ -7,7 +7,7 @@
     <div
       v-for="(section, index) in sidebar.sections"
       :key="section.title"
-      class="pb-4 mb-4 border-borderColor"
+      class="pb-4 mb-4 border-ui-border"
       :class="{ 'border-b': index < sidebar.sections.length -1 }"
     >
       <h3 class="uppercase tracking-tight text-sm mb-1 border-none mt-0 pt-0">
@@ -27,7 +27,7 @@
             class="flex items-center py-1 font-semibold"
           >
            <span
-              class="w-2 h-2 bg-primary rounded-full absolute -ml-3 transition duration-300 ease-out opacity-0 transform scale-0 origin-center"
+              class="w-2 h-2 bg-ui-primary rounded-full absolute -ml-3 transition duration-300 ease-out opacity-0 transform scale-0 origin-center"
               :class="{
                 'opacity-100 scale-100': isCurrentPage(page)
               }"
@@ -80,8 +80,8 @@ export default {
   methods: {
     getClassesForAnchor(page) {
       return {
-        "text-primary": this.isCurrentPage(page),
-        "transition duration-300 ease-out transform hover:translate-x-1 hover:text-primary": ! this.isCurrentPage(page)
+        "text-ui-primary": this.isCurrentPage(page),
+        "transition duration-300 ease-out transform hover:translate-x-1 hover:text-ui-primary": ! this.isCurrentPage(page)
       };
     },
     isCurrentPage(page) {

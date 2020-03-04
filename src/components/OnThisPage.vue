@@ -1,5 +1,5 @@
 <template>
-  <div class="sm:pl-4 md:pl-6 md:pt-12 lg:pl-8 sm:pb-16 sm:border-l border-borderColor mt-8 md:mt-0">
+  <div class="sm:pl-4 md:pl-6 md:pt-12 lg:pl-8 sm:pb-16 sm:border-l border-ui-border mt-8 md:mt-0">
     <h3 class="border-none uppercase text-sm tracking-wide mt-0 pt-0">On this page</h3>
     <div>
       <ul>
@@ -7,7 +7,7 @@
           v-for="(heading, index) in headings"
           :key="`${page.path}${heading.anchor}`"
           :class="{
-            'border-t border-dashed border-borderColor pt-2 mt-2': index > 0 && heading.depth === 2,
+            'border-t border-dashed border-ui-border pt-2 mt-2': index > 0 && heading.depth === 2,
             'font-semibold': heading.depth === 2,
             [`depth-${heading.depth}`]: true,
           }"
@@ -19,11 +19,12 @@
               'pl-2': heading.depth === 3,
               'pl-3': heading.depth === 4,
               'pl-4': heading.depth === 5,
-              'font-bold text-primary': activeAnchor === heading.anchor
+              'pl-5': heading.depth === 6,
+              'font-bold text-ui-primary': activeAnchor === heading.anchor
             }"
           >
             <span
-              class="w-2 h-2 bg-primary rounded-full absolute -ml-3 transition duration-300 ease-out opacity-0 transform scale-0 origin-center"
+              class="w-2 h-2 bg-ui-primary rounded-full absolute -ml-3 transition duration-300 ease-out opacity-0 transform scale-0 origin-center"
               :class="{
                 'opacity-100 scale-100': activeAnchor === heading.anchor
               }"

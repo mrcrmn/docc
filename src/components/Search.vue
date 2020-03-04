@@ -14,7 +14,7 @@
         ref="input"
         type="search"
         :value="query"
-        class="block py-2 pl-10 pr-4 bg-sidebar border-2 border-sidebar rounded-lg focus:bg-background w-full"
+        class="block py-2 pl-10 pr-4 bg-ui-sidebar border-2 border-ui-sidebar rounded-lg focus:bg-ui-background w-full"
         :class="{'rounded-b-none': showResult,}"
         placeholder="Search Documentation..."
         @focus="focused = true"
@@ -25,7 +25,7 @@
     </label>
     <div 
       v-if="showResult"
-      class="results bg-background overflow-y-auto fixed bottom:0 sm:bottom-auto sm:absolute rounded-lg rounded-t-none shadow-lg border-2 border-t-0 border-sidebar z-50 inset-x-0"
+      class="results bg-ui-background overflow-y-auto fixed bottom:0 sm:bottom-auto sm:absolute rounded-lg rounded-t-none shadow-lg border-2 border-t-0 border-ui-sidebar z-50 inset-x-0"
       style="max-height: calc(100vh - 120px)"
     >
       <ul class="py-2 px-4 m-0">
@@ -39,7 +39,7 @@
           :key="result.path + result.anchor"
           @mouseenter="focusIndex = index"
           @mousedown="go"
-          class="border-sidebar"
+          class="border-ui-sidebar"
           :class="{
             'border-b': index + 1 !== results.length
           }"
@@ -48,7 +48,7 @@
             :to="result.path + result.anchor"
             class="block rounded-lg -mx-2 p-2 font-bold text-base"
             :class="{
-              'bg-sidebar text-primary': focusIndex === index,
+              'bg-ui-sidebar text-ui-primary': focusIndex === index,
             }"
           >
 

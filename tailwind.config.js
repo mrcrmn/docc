@@ -2,11 +2,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--color-background)',
-        sidebar: 'var(--color-sidebar)',
-        typo: 'var(--color-typo)',
-        borderColor: 'var(--color-borderColor)',
-        primary: 'var(--color-primary)',
+        ui: {
+          background: 'var(--color-ui-background)',
+          sidebar: 'var(--color-ui-sidebar)',
+          typo: 'var(--color-ui-typo)',
+          primary: 'var(--color-ui-primary)',
+          border: 'var(--color-ui-border)'
+        }
       },
       spacing: {
         sm: '24rem'

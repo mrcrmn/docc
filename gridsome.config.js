@@ -30,15 +30,14 @@ module.exports = {
               '/docs/',
               '/docs/installation/',
               '/docs/writing-content/',
+              '/docs/deploying/',
             ]
           },
           {
             title: 'Configuration',
             items: [
               '/docs/settings/',
-              '/docs/external-pages/',
               '/docs/sidebar/',
-              '/docs/google-analytics/',
             ]
           }
         ]

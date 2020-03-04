@@ -1,12 +1,12 @@
 <template>
-  <div class="py-2 border-t-2 border-primary">
+  <div class="py-2 border-t-2 border-ui-primary">
     <div class="container">
 
       <div class="-mx-2 sm:-mx-4 flex justify-between items-center">
         <div class="px-2 sm:px-4 flex flex-col sm:flex-row items-center mr-auto">
           <g-link
             to="/"
-            class="flex items-center text-primary"
+            class="flex items-center text-ui-primary"
             title="Home"
           >
             <Logo :width="40" />
@@ -20,7 +20,7 @@
               v-for="link in settings.nav.links"
               :key="link.path"
               :to="link.path"
-              class="nav-link block font-medium p-1 border-b-2 border-background transition-colors duration-300 ease-out hover:text-primary"
+              class="nav-link block font-medium p-1 border-b-2 border-ui-background transition-colors duration-300 ease-out hover:text-ui-primary"
             >
               {{ link.title }}
             </g-link>
@@ -115,14 +115,14 @@ header {
     @apply transition-colors duration-300 ease-out;
   
     &:hover {
-      @apply text-primary;
+      @apply text-ui-primary;
     }
   }
 }
 
 .nav-link {
   &.active {
-    @apply text-primary font-bold border-primary;
+    @apply text-ui-primary font-bold border-ui-primary;
   }
 }
 </style>

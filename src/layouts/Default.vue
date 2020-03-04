@@ -1,16 +1,16 @@
 <template>
-  <div class="font-sans antialiased text-typo bg-background">
+  <div class="font-sans antialiased text-ui-typo bg-ui-background">
     <div class="flex flex-col min-h-screen justify-start">
 
       <header
         ref="header"
-        class="bg-background w-full sticky top-0 border-b border-borderColor z-10"
+        class="bg-ui-background w-full sticky top-0 border-b border-ui-border z-10"
         @resize="setHeaderHeight"
       >
         <LayoutHeader />
       </header>
 
-      <main class="relative w-full flex-1 container bg-background flex flex-wrap justify-start">
+      <main class="relative w-full flex-1 container bg-ui-background flex flex-wrap justify-start">
 
         <aside
           v-if="hasSidebar"
@@ -18,7 +18,7 @@
           :class="{ 'open': sidebarOpen }"
           :style="sidebarStyle"
         >
-          <div class="bg-background w-full pb-16">
+          <div class="bg-ui-background w-full pb-16">
             <Sidebar @navigate="sidebarOpen = false" />
           </div>
         </aside>
@@ -35,7 +35,7 @@
     </div>
 
     <div v-if="hasSidebar" class="fixed bottom-0 right-0 p-8 lg:hidden z-50">
-      <button class="rounded-full shadow-lg text-white p-3 bg-primary hover:text-white" @click="sidebarOpen = ! sidebarOpen">
+      <button class="rounded-full shadow-lg text-white p-3 bg-ui-primary hover:text-white" @click="sidebarOpen = ! sidebarOpen">
         <XIcon v-if="sidebarOpen" />
         <MenuIcon v-else />
       </button>
@@ -100,23 +100,23 @@ export default {
 
 <style lang="scss">
 :root {
-  --color-background: theme('colors.white');
-  --color-typo: theme('colors.gray.700');
-  --color-sidebar: theme('colors.gray.200');
-  --color-borderColor: theme('colors.gray.300');
-  --color-primary: theme('colors.indigo.600');
+  --color-ui-background: theme('colors.white');
+  --color-ui-typo: theme('colors.gray.700');
+  --color-ui-sidebar: theme('colors.gray.200');
+  --color-ui-border: theme('colors.gray.300');
+  --color-ui-primary: theme('colors.indigo.600');
 }
 
 html[lights-out] {
-  --color-background: theme('colors.gray.900');
-  --color-typo: theme('colors.gray.100');
-  --color-sidebar: theme('colors.gray.800');
-  --color-borderColor: theme('colors.gray.800');
-  --color-primary: theme('colors.indigo.500');
+  --color-ui-background: theme('colors.gray.900');
+  --color-ui-typo: theme('colors.gray.100');
+  --color-ui-sidebar: theme('colors.gray.800');
+  --color-ui-border: theme('colors.gray.800');
+  --color-ui-primary: theme('colors.indigo.500');
 
   pre[class*="language-"],
   code[class*="language-"] {
-    @apply bg-borderColor;
+    @apply bg-ui-border;
   }
 }
 
@@ -143,7 +143,7 @@ h4 {
       content: "#";
       margin-left: -1em;
       padding-right: 1em;
-      @apply text-primary absolute opacity-0 float-left;
+      @apply text-ui-primary absolute opacity-0 float-left;
     }
   }
 }
@@ -174,10 +174,10 @@ blockquote {
 
 .content {
   a {
-    @apply text-primary underline;
+    @apply text-ui-primary underline;
   }
 
-  h1, h2, h4, h4 {
+  h1, h2, h3, h4, h5, h6 {
     @apply -mt-12 pt-20;
   }
     
@@ -189,11 +189,15 @@ blockquote {
 
   h2,
   h3 {
-    @apply border-b border-borderColor pb-1 mb-3;
+    @apply border-b border-ui-border pb-1 mb-3;
   }
 
   ul {
     @apply list-disc;
+
+    ul {
+      list-style: circle;
+    }
   }
 
   ol {
@@ -207,6 +211,10 @@ blockquote {
     li {
       @apply mb-2;
 
+      p {
+        @apply mb-0;
+      }
+
       &:last-child {
         @apply mb-0;
       }
@@ -215,7 +223,7 @@ blockquote {
 }
 
 blockquote {
-  @apply border-l-4 border-borderColor py-2 pl-4;
+  @apply border-l-4 border-ui-border py-2 pl-4;
 
   p:last-child {
     @apply mb-0;
@@ -223,7 +231,7 @@ blockquote {
 }
 
 code {
-  @apply px-1 py-1 bg-sidebar font-mono border-b border-r border-borderColor text-sm rounded;
+  @apply px-1 py-1 bg-ui-sidebar font-mono border-b border-r border-ui-border text-sm rounded;
 }
 
 pre[class*="language-"] {
@@ -257,7 +265,7 @@ table {
   }
 
   tr {
-    @apply border-b border-borderColor;
+    @apply border-b border-ui-border;
     &:last-child {
       @apply border-b-0;
     }
@@ -265,7 +273,7 @@ table {
 }
 
 .sidebar {
-  @apply fixed bg-background px-4 inset-x-0 bottom-0 w-full border-r border-borderColor overflow-y-auto transition-transform duration-300 ease-in-out z-40;
+  @apply fixed bg-ui-background px-4 inset-x-0 bottom-0 w-full border-r border-ui-border overflow-y-auto transition-transform duration-300 ease-in-out z-40;
   transform: translateX(-100%);
 
   &.open {

@@ -2,7 +2,7 @@
 description: ''
 sidebar: 'docs'
 prev: '/docs/installation/'
-next: '/docs/external-pages/'
+next: '/docs/settings/'
 ---
 
 # Writing Content
@@ -36,3 +36,4 @@ plugins: [
 ]
 ```
 
+If you have never worked with markdown, just search the internet for a guide. It is very simple to pick up.
