@@ -67,8 +67,8 @@ module.exports = {
         tailwindConfig: './tailwind.config.js',
         purgeConfig: {
           // Prevent purging of prism classes.
-          whitelistPatterns: [
-            /token/
+          whitelistPatternsChildren: [
+            /token$/
           ]
         }
       }
