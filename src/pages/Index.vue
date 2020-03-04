@@ -89,11 +89,39 @@ export default {
     SearchIcon
   },
 
-  metaInfo: {
-    title: 'Great Documentation starts here',
-    meta: [
-      { name: 'description', content: 'DOCC is a starter theme with instant search and dark mode for writing great technical documentation. Based on Gridsome!' }
-    ]
+  metaInfo() {
+    const title = 'Great Documentation starts here';
+    const description = 'DOCC is a starter theme with instant search and dark mode for writing great technical documentation. Based on Gridsome!';
+
+    return {
+      title: title,
+      meta: [
+        {
+          name: 'description',
+          content: description
+        },
+        {
+          key: 'og:title',
+          name: 'og:title',
+          content: title,
+        },
+        {
+          key: 'twitter:title',
+          name: 'twitter:title',
+          content: title,
+        },
+        {
+          key: 'og:description',
+          name: 'og:description',
+          content: description,
+        },
+        {
+          key: 'twitter:description',
+          name: 'twitter:description',
+          content: description,
+        },
+      ]
+    }
   }
 }
 </script>

@@ -58,10 +58,36 @@ export default {
   },
   
   metaInfo() {
+    const title = this.$page.markdownPage.title;
+    const description = this.$page.markdownPage.description || this.$page.markdownPage.excerpt;
+
     return {
-      title: this.$page.markdownPage.title,
+      title: title,
       meta: [
-        { name: 'description', content: this.$page.markdownPage.description || this.$page.markdownPage.excerpt }
+        {
+          name: 'description',
+          content: description
+        },
+        {
+          key: 'og:title',
+          name: 'og:title',
+          content: title,
+        },
+        {
+          key: 'twitter:title',
+          name: 'twitter:title',
+          content: title,
+        },
+        {
+          key: 'og:description',
+          name: 'og:description',
+          content: description,
+        },
+        {
+          key: 'twitter:description',
+          name: 'twitter:description',
+          content: description,
+        },
       ]
     }
   }

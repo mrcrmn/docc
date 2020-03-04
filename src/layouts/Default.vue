@@ -94,6 +94,32 @@ export default {
   },
   mounted() {
     this.setHeaderHeight();
+  },
+  metaInfo() {
+    return {
+      meta: [
+        {
+          key: 'og:type',
+          name: 'og:type',
+          content: 'website',
+        },
+        {
+          key: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          key: 'og:image',
+          name: 'og:image',
+          content: '../assets/logo.png',
+        },
+        {
+          key: 'twitter:image',
+          name: 'twitter:image',
+          content: '../assets/logo.png',
+        },
+      ]
+    }
   }
 };
 </script>
