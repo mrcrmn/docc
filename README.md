@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="/src/assets/logo.png" alt="Docc Logo" width="450">
+    <img src="/static/logo.jpg" alt="Docc Logo" width="450">
 </p>
 
 A starter documentation theme for [Gridsome](https://gridsome.org/).

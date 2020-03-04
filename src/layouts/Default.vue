@@ -111,12 +111,12 @@ export default {
         {
           key: 'og:image',
           name: 'og:image',
-          content: '/logo.png',
+          content: '/logo.jpg',
         },
         {
           key: 'twitter:image',
           name: 'twitter:image',
-          content: '/logo.png',
+          content: '/logo.jpg',
         },
       ]
     }
