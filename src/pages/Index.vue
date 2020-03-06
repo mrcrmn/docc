@@ -8,7 +8,7 @@
             DOCC
           </h2>
         </div>
-        <h1 class="text-4xl lg:text-5xl text-center">
+        <h1 class="text-4xl lg:text-5xl text-center font-black leading-snug mb-4">
           Great Documentation starts here.
         </h1>
         <p class="font-medium text-xl text-center">

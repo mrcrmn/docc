@@ -10,7 +10,7 @@
       class="pb-4 mb-4 border-ui-border"
       :class="{ 'border-b': index < sidebar.sections.length -1 }"
     >
-      <h3 class="uppercase tracking-tight text-sm mb-1 border-none mt-0 pt-0">
+      <h3 class="font-black uppercase tracking-tight text-sm mb-1 border-none mt-0 pt-0">
         {{ section.title }}
       </h3>
 

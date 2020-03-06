@@ -152,24 +152,32 @@ html[lights-out] {
   transition-timing-function: ease-in-out;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  @apply leading-snug font-black mb-4;
-
-  &:hover {
-    a::before {
-      @apply opacity-100;
+.content {
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply leading-snug font-black mb-4;
+  
+    &:hover {
+      a::before {
+        @apply opacity-100;
+      }
     }
-  }
-
-  a {
-    &::before {
-      content: "#";
-      margin-left: -1em;
-      padding-right: 1em;
-      @apply text-ui-primary absolute opacity-0 float-left;
+  
+    & > a {
+      @apply text-ui-primary no-underline;
+  
+      &::before {
+        content: "#";
+        @apply pr-2;
+  
+        @screen sm {
+          margin-left: -1em;
+          padding-right: .75em;
+          @apply opacity-0 absolute float-left;
+        }
+      }
     }
   }
 }

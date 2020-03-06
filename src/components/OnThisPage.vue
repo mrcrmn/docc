@@ -1,6 +1,6 @@
 <template>
   <div class="sm:pl-4 md:pl-6 md:pt-12 lg:pl-8 sm:pb-16 sm:border-l border-ui-border mt-8 md:mt-0">
-    <h3 class="border-none uppercase text-sm tracking-wide mt-0 pt-0">On this page</h3>
+    <h3 class="font-black border-none uppercase text-sm tracking-wide mt-0 pt-0 mb-4 leading-snug">On this page</h3>
     <div>
       <ul>
         <li
