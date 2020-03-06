@@ -3,7 +3,7 @@
     <div class="container">
 
       <div class="-mx-2 sm:-mx-4 flex justify-between items-center">
-        <div class="px-2 sm:px-4 flex flex-col sm:flex-row items-center mr-auto">
+        <div class="px-2 sm:px-4 flex items-center mr-auto">
           <g-link
             to="/"
             class="flex items-center text-ui-primary"
@@ -15,16 +15,21 @@
             </span>
           </g-link>
 
-          <div v-if="settings.nav.links.length > 0" class="hidden sm:block ml-2 sm:ml-8 mr-5">
-            <g-link
-              v-for="link in settings.nav.links"
-              :key="link.path"
-              :to="link.path"
-              class="nav-link block font-medium p-1 border-b-2 border-ui-background transition-colors duration-300 ease-out hover:text-ui-primary"
-            >
-              {{ link.title }}
-            </g-link>
-          </div>
+          <OverflowContainer
+            v-if="settings.nav.links.length > 0"
+            class="ml-2 sm:ml-8 mr-3"
+          >
+            <div class="nav flex py-1">
+              <g-link
+                v-for="link in settings.nav.links"
+                :key="link.path"
+                :to="link.path"
+                class="nav-link font-medium text-sm sm:text-base py-1 px-1 mr-2 border-b-2 border-ui-background transition-colors duration-300 ease-out hover:text-ui-primary"
+              >
+                {{ link.title }}
+              </g-link>
+            </div>
+          </OverflowContainer>
         </div>
 
         <div class="px-2 sm:px-4 w-full max-w-screen-xs">
@@ -43,7 +48,7 @@
             <TwitterIcon size="1.5x" />
           </a>
 
-          <a v-if="settings.github" :href="settings.github" class="sm:ml-3" target="_blank" rel="noopener noreferrer" title="Github" name="Github">
+          <a v-if="settings.github" :href="settings.github" class="sm:ml-3" target="_blank" rel="noopener noreferrer" title="GitHub" name="GitHub">
             <GithubIcon size="1.5x" />
           </a>
 
@@ -81,14 +86,17 @@ query {
 
 <script>
 import ToggleDarkMode from "@/components/ToggleDarkMode";
+import OverflowContainer from "@/components/OverflowContainer";
 import Logo from '@/components/Logo';
 import { SunIcon, MoonIcon, GlobeIcon, GithubIcon, TwitterIcon } from "vue-feather-icons";
 
+// The sites index might be large, so we just lazy load the whole component.
 const Search = () => import(/* webpackChunkName: "search" */ "@/components/Search").catch(error => console.warn(error));
 
 export default {
   components: {
     Logo,
+    OverflowContainer,
     Search,
     ToggleDarkMode,
     SunIcon,
@@ -117,6 +125,14 @@ header {
     &:hover {
       @apply text-ui-primary;
     }
+  }
+}
+
+.nav {
+  max-width: 10rem;
+
+  @screen md {
+    max-width: initial;
   }
 }
 
