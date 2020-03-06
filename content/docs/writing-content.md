@@ -8,7 +8,7 @@ next: '/docs/settings/'
 # Writing Content
 
 After installing, head to `content/docs`. This is where all the documentation for this theme is located.
-You can look into it if you want, to get a sense, of how this theme works but generally the first action you take, is to delete that folder and create your own content.
+You can look into it if you want, to get a sense of how this theme works but generally the first action you take, is to delete that folder and create your own content.
 
 ## Writing Markdown
 

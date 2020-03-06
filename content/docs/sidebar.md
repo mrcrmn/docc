@@ -22,7 +22,7 @@ module.exports = {
 }
 ```
 
-Please note that the sidebar option is an array, since you can define multiple sidebars for different sections of your website. For example you might have a sidebar for your guide and another one for your Api reference.
+Please note that the sidebar option is an array, since you can define multiple sidebars for different sections of your website. For example you might have a sidebar for your guide and another one for your API reference.
 
 ### The Sidebar Config Object
 

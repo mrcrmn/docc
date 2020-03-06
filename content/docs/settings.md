@@ -11,7 +11,7 @@ When creating your markdown files, there is some configuration to do, if we want
 
 ## Sidebar
 
-The sidebar, unfortunately, is not generated automatically but rather configured in your frontmatter and the `gridsome.config.file`.
+The sidebar, unfortunately, is not generated automatically but rather configured in your frontmatter and the `gridsome.config.js` file.
 Check out the [sidebar](/docs/sidebar/) section for more information.
 
 ## Next and Previous Navigation
