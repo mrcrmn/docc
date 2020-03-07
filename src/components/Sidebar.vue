@@ -29,7 +29,7 @@
            <span
               class="w-2 h-2 bg-ui-primary rounded-full absolute -ml-3 transition duration-300 ease-out opacity-0 transform scale-0 origin-center"
               :class="{
-                'opacity-100 scale-100': isCurrentPage(page)
+                'opacity-100 scale-100': currentPage.path === page.path
               }"
             ></span>
             {{ page.title }}
@@ -76,16 +76,16 @@ export default {
       return this.$page.markdownPage.sidebar
         && this.sidebar;
     },
+    currentPage() {
+      return this.$page.markdownPage;
+    }
   },
   methods: {
-    getClassesForAnchor(page) {
+    getClassesForAnchor({ path }) {
       return {
-        "text-ui-primary": this.isCurrentPage(page),
-        "transition duration-300 ease-out transform hover:translate-x-1 hover:text-ui-primary": ! this.isCurrentPage(page)
+        "text-ui-primary": this.currentPage.path === path,
+        "transition duration-300 ease-out transform hover:translate-x-1 hover:text-ui-primary": ! this.currentPage.path === path
       };
-    },
-    isCurrentPage(page) {
-      return page.path === this.$page.markdownPage.path;
     },
     findPages(links) {
       return links.map(link => this.pages.find(page => page.path === link));
