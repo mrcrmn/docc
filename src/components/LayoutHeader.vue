@@ -20,7 +20,7 @@
               v-for="link in settings.nav.links"
               :key="link.path"
               :to="link.path"
-              class="nav-link block font-medium p-1 border-b-2 border-ui-background transition-colors duration-300 ease-out hover:text-ui-primary"
+              class="nav-link font-medium p-1 px-2 border-b-2 border-ui-background transition-colors duration-300 ease-out hover:text-ui-primary"
             >
               {{ link.title }}
             </g-link>
