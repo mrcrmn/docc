@@ -2,44 +2,44 @@
   <div class="py-2 border-t-2 border-ui-primary">
     <div class="container">
 
-      <div class="-mx-2 sm:-mx-4 flex justify-between items-center">
-        <div class="px-2 sm:px-4 flex flex-col sm:flex-row items-center mr-auto">
+      <div class="flex items-center justify-between -mx-2 sm:-mx-4">
+        <div class="flex flex-col items-center px-2 mr-auto sm:px-4 sm:flex-row">
           <g-link
             to="/"
             class="flex items-center text-ui-primary"
             title="Home"
           >
-            <Logo :width="40" />
-            <span class="hidden sm:block font-black uppercase tracking-tighter text-xl ml-2">
+            <Logo :width="40" class="text-ui-primary" />
+            <span class="hidden ml-2 text-xl font-black tracking-tighter uppercase sm:block">
               {{ meta.siteName }}
             </span>
           </g-link>
 
-          <div v-if="settings.nav.links.length > 0" class="hidden sm:block ml-2 sm:ml-8 mr-5">
+          <div v-if="settings.nav.links.length > 0" class="hidden ml-2 mr-5 sm:block sm:ml-8">
             <g-link
               v-for="link in settings.nav.links"
               :key="link.path"
               :to="link.path"
-              class="nav-link block font-medium p-1 border-b-2 border-ui-background transition-colors duration-300 ease-out hover:text-ui-primary"
+              class="block p-1 font-medium nav-link text-ui-typo hover:text-ui-primary"
             >
               {{ link.title }}
             </g-link>
           </div>
         </div>
 
-        <div class="px-2 sm:px-4 w-full max-w-screen-xs">
+        <div class="w-full px-2 sm:px-4 max-w-screen-xs">
           <ClientOnly>
             <Search />
           </ClientOnly>
         </div>
 
-        <div class="px-2 sm:px-4 flex justify-end items-center">
+        <div class="flex items-center justify-end px-2 sm:px-4">
 
-          <a v-if="settings.web" :href="settings.web" class="hidden sm:block ml-3" target="_blank" rel="noopener noreferrer" title="Website" name="Website">
+          <a v-if="settings.web" :href="settings.web" class="hidden ml-3 sm:block" target="_blank" rel="noopener noreferrer" title="Website" name="Website">
             <GlobeIcon size="1.5x" />
           </a>
 
-          <a v-if="settings.twitter" :href="settings.twitter" class="hidden sm:block ml-3" target="_blank" rel="noopener noreferrer" title="Twitter" name="Twitter">
+          <a v-if="settings.twitter" :href="settings.twitter" class="hidden ml-3 sm:block" target="_blank" rel="noopener noreferrer" title="Twitter" name="Twitter">
             <TwitterIcon size="1.5x" />
           </a>
 
@@ -112,8 +112,6 @@ export default {
 <style lang="scss">
 header {
   svg:not(.feather-search) {
-    @apply transition-colors duration-300 ease-out;
-  
     &:hover {
       @apply text-ui-primary;
     }

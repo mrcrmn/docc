@@ -1,16 +1,16 @@
 <template>
   <div class="font-sans antialiased text-ui-typo bg-ui-background">
-    <div class="flex flex-col min-h-screen justify-start">
+    <div class="flex flex-col justify-start min-h-screen">
 
       <header
         ref="header"
-        class="bg-ui-background w-full sticky top-0 border-b border-ui-border z-10"
+        class="sticky top-0 z-10 w-full border-b bg-ui-background border-ui-border"
         @resize="setHeaderHeight"
       >
         <LayoutHeader />
       </header>
 
-      <main class="relative w-full flex-1 container bg-ui-background flex flex-wrap justify-start">
+      <main class="container relative flex flex-wrap justify-start flex-1 w-full bg-ui-background">
 
         <aside
           v-if="hasSidebar"
@@ -18,7 +18,7 @@
           :class="{ 'open': sidebarOpen }"
           :style="sidebarStyle"
         >
-          <div class="bg-ui-background w-full pb-16">
+          <div class="w-full pb-16 bg-ui-background">
             <Sidebar @navigate="sidebarOpen = false" />
           </div>
         </aside>
@@ -34,8 +34,8 @@
 
     </div>
 
-    <div v-if="hasSidebar" class="fixed bottom-0 right-0 p-8 lg:hidden z-50">
-      <button class="rounded-full shadow-lg text-white p-3 bg-ui-primary hover:text-white" @click="sidebarOpen = ! sidebarOpen">
+    <div v-if="hasSidebar" class="fixed bottom-0 right-0 z-50 p-8 lg:hidden">
+      <button class="p-3 text-white rounded-full shadow-lg bg-ui-primary hover:text-white" @click="sidebarOpen = ! sidebarOpen">
         <XIcon v-if="sidebarOpen" />
         <MenuIcon v-else />
       </button>
@@ -156,7 +156,7 @@ h1,
 h2,
 h3,
 h4 {
-  @apply leading-snug font-black mb-4;
+  @apply leading-snug font-black mb-4 text-ui-typo;
 
   &:hover {
     a::before {
@@ -190,12 +190,14 @@ h4 {
   @apply text-lg;
 }
 
+a:not(.active):not(.text-ui-primary):not(.text-white) { @apply text-ui-typo }
+
 p,
 ol,
 ul,
 pre,
 blockquote {
-  @apply mb-4 text-base;
+  @apply mb-4 text-base text-ui-typo;
 }
 
 .content {
@@ -299,7 +301,7 @@ table {
 }
 
 .sidebar {
-  @apply fixed bg-ui-background px-4 inset-x-0 bottom-0 w-full border-r border-ui-border overflow-y-auto transition-transform duration-300 ease-in-out z-40;
+  @apply fixed bg-ui-background px-4 inset-x-0 bottom-0 w-full border-r border-ui-border overflow-y-auto transition-all z-40;
   transform: translateX(-100%);
 
   &.open {

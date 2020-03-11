@@ -5,16 +5,16 @@
     @keydown.enter="go"
     class="relative"
   >
-    <label class="block relative">
+    <label class="relative block">
       <span class="sr-only">Search Documentation</span>
-      <div class="absolute left-0 inset-y-0 flex items-center justify-center py-2 px-3 opacity-50">
-        <SearchIcon size="1.25x" />
+      <div class="absolute inset-y-0 left-0 flex items-center justify-center px-3 py-2 opacity-50">
+        <SearchIcon size="1.25x" class="text-ui-typo" />
       </div>
       <input
         ref="input"
         type="search"
         :value="query"
-        class="block py-2 pl-10 pr-4 bg-ui-sidebar border-2 border-ui-sidebar rounded-lg focus:bg-ui-background w-full"
+        class="block w-full py-2 pl-10 pr-4 border-2 rounded-lg bg-ui-sidebar border-ui-sidebar focus:bg-ui-background"
         :class="{'rounded-b-none': showResult,}"
         placeholder="Search Documentation..."
         @focus="focused = true"
@@ -25,10 +25,10 @@
     </label>
     <div 
       v-if="showResult"
-      class="results bg-ui-background overflow-y-auto fixed bottom:0 sm:bottom-auto sm:absolute rounded-lg rounded-t-none shadow-lg border-2 border-t-0 border-ui-sidebar z-50 inset-x-0"
+      class="fixed inset-x-0 z-50 overflow-y-auto border-2 border-t-0 rounded-lg rounded-t-none shadow-lg results bg-ui-background bottom:0 sm:bottom-auto sm:absolute border-ui-sidebar"
       style="max-height: calc(100vh - 120px)"
     >
-      <ul class="py-2 px-4 m-0">
+      <ul class="px-4 py-2 m-0">
         <li v-if="results.length === 0" class="px-2">
           No results for <span class="font-bold">{{ query }}</span>.
         </li>
@@ -46,7 +46,7 @@
         >
           <g-link
             :to="result.path + result.anchor"
-            class="block rounded-lg -mx-2 p-2 font-bold text-base"
+            class="block p-2 -mx-2 text-base font-bold rounded-lg"
             :class="{
               'bg-ui-sidebar text-ui-primary': focusIndex === index,
             }"
