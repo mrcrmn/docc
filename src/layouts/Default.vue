@@ -196,6 +196,7 @@ p,
 ol,
 ul,
 pre,
+strong,
 blockquote {
   @apply mb-4 text-base text-ui-typo;
 }
@@ -259,7 +260,7 @@ blockquote {
 }
 
 code {
-  @apply px-1 py-1 bg-ui-sidebar font-mono border-b border-r border-ui-border text-sm rounded;
+  @apply px-1 py-1 text-ui-typo bg-ui-sidebar font-mono border-b border-r border-ui-border text-sm rounded;
 }
 
 pre[class*="language-"] {
