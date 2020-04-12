@@ -2,7 +2,7 @@
 description: ''
 sidebar: 'docs'
 prev: '/docs/installation/'
-next: '/docs/settings/'
+next: '/docs/deploying/'
 ---
 
 # Writing Content
