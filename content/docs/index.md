@@ -6,29 +6,29 @@ next: '/docs/installation/'
 
 # Introduction
 
-Docc is a starter theme for [Gridsome](https://gridsome.org/) which is a static site generator powered by Vue. It allows you to quickly start writing your technical documentation for any kind of project.
+Docc is a starter theme for [Gridsome](https://gridsome.org/), which is a static site generator powered by Vue. It allows you to quickly start writing your technical documentation for any kind of project.
 
 ## Fast by default
 
-This is the catchphrase of Gridsome and true in any sense of the word. Static site generators output plain html files and have other great features like image processing and lazy-loading. After Serving the initial html, Gridsome site turn into a snappy single page application.
+This is the catchphrase of Gridsome and true in any sense of the word. Static site generators output plain HTML files and have other great features like image processing and lazy-loading. After serving the initial HTML, a Gridsome site turns into a snappy single-page application.
 
 If I may quote Gridsome themselves:
 
 > Gridsome builds ultra performance into every page automatically. You get code splitting, asset optimization, progressive images, and link prefetching out of the box. With Gridsome you get almost perfect page speed scores by default.
 
-In combination with [Netlify](https://www.netlify.com/) this theme gives you a perfect Lighthouse score out of the box.
+In combination with [Netlify](https://www.netlify.com/), this theme gives you a perfect Lighthouse score out of the box.
 
 ## Simple Navigation
 
-Any good documentation has great navigation. This theme has support for an organized sidebar for cross-page navigation as well as an autmatic generated table of contents for each page in your documentation.
+Any good documentation has great navigation. This theme has support for an organized sidebar for cross-page navigation as well as an automatic generated table of contents for each page in your documentation.
 
 ## Search
 
-The search component which is shipped with this theme, automatically indexes all headlines in your markdown pages and provides instant, client-side search powered by [Fuse.js](https://fusejs.io/).
+The search component that is shipped with this theme automatically indexes all headlines in your Markdown pages and provides instant, client-side search powered by [Fuse.js](https://fusejs.io/).
 
 ## Dark Mode
 
-This seems to be a must have for any site in current year. Click the icon at the top of the page and try it out for yourself!
+This seems to be a must have for any site this year. Click the icon at the top of the page and try it out for yourself!
 
 ## TailwindCSS
 
