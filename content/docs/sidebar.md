@@ -6,10 +6,11 @@ prev: '/docs/settings/'
 
 # Sidebar
 
-In order to have a sidebar visible on the side of the page (like on this one for example) or on mobile devices as an off-canvas navigation, you are required to do some global configuration, as well as some configuration per markdown file.
+To include a navigation sidebar on the left (like on this page, for example) or on mobile devices as an off-canvas navigation, adjust the settings in the global configuration, and add a reference to the sidebar in the frontmatter of each Markdown file.
 
 ## Global Configuration
-Open the `gridsome.config.js`. The configuration for the sidebar is located under `settings > sidebar`.
+
+Open the `gridsome.config.js` file. The configuration for the sidebar is located under `settings > sidebar`.
 
 ```js
 // gridsome.config.js
@@ -22,13 +23,13 @@ module.exports = {
 }
 ```
 
-Please note that the sidebar option is an array, since you can define multiple sidebars for different sections of your website. For example you might have a sidebar for your guide and another one for your API reference.
+Please note that the sidebar option is an array, so you can define multiple sidebars for different sections of your website. For example, you might have a sidebar for your user guide and another one for your API reference.
 
 ### The Sidebar Config Object
 
-A single item in this array needs to have the following properties:
-- `name`: The identifier of the sidebar. This will be referenced in your markdown frontmatter.
-- `sections`: The sidebar is divided into several sections. On this page we have **Getting Started** and **Configuration**
+Each sidebar in this array requires the following properties:
+- `name`: The identifier of the sidebar. This will be referenced in your Markdown frontmatter.
+- `sections`: The sidebar is divided into several sections. On this page, we have **Getting Started** and **Configuration**.
 
 ```js
 // gridsome.config.js
@@ -44,7 +45,7 @@ module.exports = {
 }
 ```
 
-An item for the `sections` array might look like this:
+A sample `sections` array might look like this:
 
 ```js
 // gridsome.config.js
@@ -69,15 +70,15 @@ module.exports = {
 }
 ```
 
-As you can see, we need a `title` for the sections, as well as an array of `items` which are the links to the given pages.
+As you can see, we need a `title` for each section, and an array of `items`, which are the links to the pages in the section.
 
 The sidebar performs a static query to get all pages. This is how we automatically put the title of the given page in the sidebar.
 
 ## Frontmatter setup
 
-After your global configuration is all done, we only need to tell the markdown page which sidebar to use.
+After your global configuration is all done, we only need to tell the Markdown page which sidebar to use.
 
-In order to do that we simply reference the `name` of the sidebar in our frontmatter:
+To do that, we simply reference the `name` of the sidebar in our frontmatter:
 
 ```md
 ---
