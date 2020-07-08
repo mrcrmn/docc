@@ -10,17 +10,17 @@ Docc is a starter theme for [Gridsome](https://gridsome.org/) which is a static 
 
 ## Fast by default
 
-This is the catchphrase of Gridsome and true in any sense of the word. Static site generators output plain html files and have other great features like image processing and lazy-loading. After Serving the initial html, Gridsome site turn into a snappy single page application.
+This is the catchphrase of Gridsome and is true in any sense of the word. Static site generators output plain html files and have other great features like image processing and lazy-loading. After Serving the initial HTML, Gridsome site turns into a snappy single page application.
 
 If I may quote Gridsome themselves:
 
-> Gridsome builds ultra performance into every page automatically. You get code splitting, asset optimization, progressive images, and link prefetching out of the box. With Gridsome you get almost perfect page speed scores by default.
+> Gridsome builds ultra performance into every page automatically. You get code splitting, asset optimization, progressive images, and link prefetching out of the box. With Gridsome, you get almost perfect page speed scores by default.
 
-In combination with [Netlify](https://www.netlify.com/) this theme gives you a perfect Lighthouse score out of the box.
+In combination with [Netlify](https://www.netlify.com/), this theme gives you a perfect Lighthouse score out of the box.
 
 ## Simple Navigation
 
-Any good documentation has great navigation. This theme has support for an organized sidebar fore cross-page navigation as well as an autmatic generated table of contents for each page in your documentation.
+Any good documentation has great navigation. This theme has support for an organized sidebar for cross-page navigation as well as an automatically generated table of contents for each page in your documentation.
 
 ## Search
 
@@ -28,7 +28,7 @@ The search component which is shipped with this theme, automatically indexes all
 
 ## Dark Mode
 
-This seems to be a must have for any site in current year. Click the icon at the top of the page and try it out for yourself!
+This seems to be a must have for any site in the current year. Click the icon at the top of the page and try it out for yourself!
 
 ## TailwindCSS
 
@@ -36,7 +36,7 @@ This starter uses [TailwindCSS](https://tailwindcss.com/) for layout and styling
 
 ### Changing Colors
 
-The most inportant colors are defined in the `src/layouts/Default.vue` file at the top of the `style` block via CSS variables. If you want to change the primary color to orange for example, you would simply touch that value there.
+The most inportant colors are defined in the `src/layouts/Default.vue` file at the top of the `style` block via CSS variables. If you want to change the primary color to orange for example, you would simply change that value there.
 
 ```css
 :rrot {
@@ -46,9 +46,9 @@ The most inportant colors are defined in the `src/layouts/Default.vue` file at t
 
 ## Make it your own
 
-Of course this is just a starter to quickly get you going. After downloading and installing you can do whatever you want with this theme. Check out the `src` folder and take a look at the components.
+Of course this is just a starter to quickly get you going. After downloading and installing, you can do whatever you want with this theme. Check out the `src` folder and take a look at the components.
 
-Docc uses [TailwindCSS](https://tailwindcss.com/). Colors and spacing can easily configured. To change the accent color, you only need to touch a single line in the code.
+Docc uses [TailwindCSS](https://tailwindcss.com/). Colors and spacing can be easily configured. To change the accent color, you only need to touch a single line in the code.
 
 Don't like how something was designed or implemented? Just change the code and **make it your way**.
 
