@@ -62,10 +62,14 @@ export default {
       }
 
       // Clear the current observer.
-      this.observer.disconnect();
+      if(this.observer) {
+        this.observer.disconnect();
+      }
 
       // And create another one for the next page.
-      this.$nextTick(this.initObserver);
+      // Fixing issue 31 created another error on build that can be avoided 
+      // by disabling the following line. Afaik, method initObserver() can be removed.
+      // this.$nextTick(this.initObserver);
     }
   },
 
