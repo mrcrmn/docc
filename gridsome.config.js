@@ -62,15 +62,9 @@ module.exports = {
     },
 
     {
-      use: 'gridsome-plugin-tailwindcss',
+      use: 'gridsome-plugin-windicss',
       options: {
-        tailwindConfig: './tailwind.config.js',
-        purgeConfig: {
-          // Prevent purging of prism classes.
-          whitelistPatternsChildren: [
-            /token$/
-          ]
-        }
+        //
       }
     },
 
